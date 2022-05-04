@@ -1,8 +1,8 @@
-Feature: eliminar miembro
+Feature: cambiar lenguaje publicacion
 
 @user1 @web
 
-Scenario: Como usuario administrador inicio sesion y elimino un miembro
+Scenario: Como usuario puedo cambiar el lenguaje de publicacion de ghost
 
   Given I navigate to page "http://localhost:2368/ghost"
 
@@ -20,22 +20,20 @@ Scenario: Como usuario administrador inicio sesion y elimino un miembro
 
   And I wait for 5 seconds
 
-  And I click members
-
-  And I wait for 5 seconds
-
-  And I select a member
+  And I click setting
 
   And I wait for 2 seconds
 
-  And I click config member
+  And I click general
 
   And I wait for 2 seconds
 
-  And I click delete member
-  
+  And I expand lenguage option
+
   And I wait for 2 seconds
 
-  And I click confirm delete
+  And I enter lenguage "es"
+
+  And I click save
 
   And I wait for 2 seconds

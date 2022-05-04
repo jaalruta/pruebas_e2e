@@ -1,6 +1,6 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 
-When('I enter email {string}', async function (email) {
+When('I enter email {kraken-string}', async function (email) {
 
     let element = await this.driver.$('#ember7');
 
@@ -8,7 +8,7 @@ When('I enter email {string}', async function (email) {
 
 });
 
-When('I enter password {string}', async function (password) {
+When('I enter password {kraken-string}', async function (password) {
 
     let element = await this.driver.$('#ember9');
 
@@ -166,3 +166,117 @@ When('I click confirm delete', async function() {
     return await element.click();
 
 })
+
+When('I click setting', async function() {
+
+    let element = await this.driver.$(".gh-nav-body a[href='#/settings/']");
+    return await element.click();
+
+})
+
+
+When('I click general', async function() {
+
+    let element = await this.driver.$(".view-container a[href='#/settings/general/']");
+    return await element.click();
+
+})
+
+When('I expand lenguage option', async function() {
+
+    let element = await this.driver.$("body > div:nth-child(4) > div:nth-child(3) > main:nth-child(2) > section:nth-child(1) > div:nth-child(2) > section:nth-child(2) > div:nth-child(3) > div:nth-child(1) > button:nth-child(2) > span:nth-child(1)");
+    return await element.click();
+
+})
+
+
+When('I enter lenguage {string}', async function (lenguage) {
+
+    let element = await this.driver.$('.ember-text-field.gh-input.ember-view');
+
+    return await element.setValue(lenguage);
+
+});
+
+
+When('I click staff', async function() {
+
+    let element = await this.driver.$(".view-container a[href='#/settings/staff/']");
+    return await element.click();
+
+})
+
+
+When('I click invite people', async function() {
+
+    let element = await this.driver.$(".view-actions button.gh-btn-primary");
+    return await element.click();
+
+})
+
+When('I enter invite email {string}', async function (email) {
+
+    let element = await this.driver.$('#new-user-email');
+
+    return await element.setValue(email);
+
+});
+
+
+
+When('I click send invitation', async function() {
+
+    let element = await this.driver.$(".modal-footer button");
+    return await element.click();
+
+})
+
+When('I click revoke staff', async function() {
+
+    let element = await this.driver.$("div[class='apps-grid'] div:nth-child(1) article:nth-child(1) div:nth-child(2) div:nth-child(1) a:nth-child(1)");
+    return await element.click();
+})
+
+
+When('I click close invite', async function() {
+
+    let element = await this.driver.$("a[title='Close']");
+    return await element.click();
+})
+
+When('I click over a staff member', async function() {
+
+    let element = await this.driver.$(".apps-grid-cell.tooltip-centered a");
+    return await element.click();
+})
+
+When('I enter staff name {string}', async function (name) {
+
+    let element = await this.driver.$('#user-name');
+
+    return await element.setValue(name);
+
+});
+
+When('I enter staff bio {string}', async function (bio) {
+
+    let element = await this.driver.$('#user-bio');
+
+    return await element.setValue(bio);
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

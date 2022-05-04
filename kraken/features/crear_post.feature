@@ -8,11 +8,11 @@ Scenario: Como usuario administrador inicio sesion y creo un post
 
   And I wait for 5 seconds
 
-  When I enter email "pruebas@ghost.com"
+  When I enter email "<USERNAME>"
 
   And I wait for 2 seconds
 
-  And I enter password "Pruebas12345"
+  And I enter password "<PASSWORD>"
 
   And I wait for 2 seconds
 
