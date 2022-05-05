@@ -1,5 +1,5 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-
+const expect = require('chai').expect;
 When('I enter email {kraken-string}', async function (email) {
 
     let element = await this.driver.$('#ember7');
@@ -265,6 +265,34 @@ When('I enter staff bio {string}', async function (bio) {
     return await element.setValue(bio);
 
 });
+
+
+Then('the lenguage must be {string}', async function (lenguage) {
+    let element = await this.driver.$('.ember-text-field.gh-input.ember-view');
+    let valor = await element.getValue()
+    expect(valor).to.equal(lenguage);
+  });
+
+
+Then('the member must be created', async function () {
+    let element = await this.driver.$$('.gh-member-details-meta');
+    let valor = element.length >0 
+    expect(valor).to.equal(true);
+  });
+
+Then('the member name must be {string}', async function (name) {
+    let element = await this.driver.$('#member-name');
+    let valor = await element.getValue()
+    expect(valor).to.equal(name);
+  });
+
+Then('the member {string} must be delete', async function (name) {
+    let busqueda = "="+name;
+    let element = await this.driver.$$(busqueda);
+    let valor = element.length >0 
+    expect(valor).to.equal(false);
+});
+  
 
 
 

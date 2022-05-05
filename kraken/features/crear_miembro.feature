@@ -43,3 +43,5 @@ Scenario: Como usuario administrador inicio sesion y creo un miembro
   And I click save 
   
   And I wait for 2 seconds
+  
+  Then the member must be created

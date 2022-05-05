@@ -24,6 +24,30 @@ Scenario: Como usuario administrador inicio sesion y edito un miembro
 
   And I wait for 5 seconds
 
+  And I click new member
+
+  And I wait for 5 seconds
+
+  And I enter member name "pruebas miembro 2222"
+
+  And I wait for 2 seconds
+
+  And I enter member email "pruebas22222@ghost.com"
+
+  And I wait for 2 seconds
+
+  And I enter member note "nota de prueba 222"
+
+  And I wait for 2 seconds
+
+  And I click save 
+  
+  And I wait for 2 seconds
+
+  And I click members
+
+  And I wait for 2 seconds
+
   And I select a member
   
   And I wait for 2 seconds
@@ -43,3 +67,5 @@ Scenario: Como usuario administrador inicio sesion y edito un miembro
   And I click save 
   
   And I wait for 2 seconds
+
+  Then the member name must be "pruebas miembro edicion"

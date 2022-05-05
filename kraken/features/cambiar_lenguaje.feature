@@ -37,3 +37,5 @@ Scenario: Como usuario puedo cambiar el lenguaje de publicacion de ghost
   And I click save
 
   And I wait for 2 seconds
+
+  Then the lenguage must be "es"
