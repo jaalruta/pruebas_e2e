@@ -113,6 +113,10 @@ se abre chrome y se comenzarán a ejecutar las pruebas
 
 ### Ejecución de pruebas con Cypress
 
+Se debe configurar el usuario y clave de administrador de Ghost , para esto nos dirigiremos al archivo /cypress/cypress.json , debemos editarlo y agregar el usuario y la contraseña, a continuación se visualiza un ejemplo :
+
+![Captura de pantalla 2022-05-05 a la(s) 11 49 07 p  m](https://user-images.githubusercontent.com/98671337/167069026-5cfb1e10-e713-4f36-af41-96fc9a282024.png)
+
 Para la ejecución de las pruebas con Cypress se debe ejecutar el siguiente comando (en ocasiones es necesario ejecutarlo con privilegios de administrador)
 
 ```
