@@ -266,6 +266,51 @@ When('I enter staff bio {string}', async function (bio) {
 
 });
 
+When('I click tags', async function() {
+
+    let element = await this.driver.$(".gh-nav-list a[href='#/tags/']"); 
+
+    return await element.click();
+
+})
+
+When('I click new tag', async function() {
+
+    let element = await this.driver.$(".gh-canvas-header a[href='#/tags/new/']"); 
+    return await element.click();
+
+})
+
+When('I enter tag name {string}', async function (name) {
+
+    let element = await this.driver.$('#tag-name'); 
+
+    return await element.setValue(name);
+
+});
+
+When('I enter tag description {string}', async function (description) {
+
+    let element = await this.driver.$('#tag-description'); 
+
+    return await element.setValue(description);
+
+});
+
+When('I select a tag', async function() {
+
+    let element = await this.driver.$(".gh-main li:nth-child(4) a:nth-child(2)"); 
+    return await element.click();
+
+});
+
+When('I click delete tag', async function() {
+
+    let element = await this.driver.$(".gh-btn-red"); 
+    return await element.click();
+
+});
+
 
 Then('the lenguage must be {string}', async function (lenguage) {
     let element = await this.driver.$('.ember-text-field.gh-input.ember-view');
@@ -287,6 +332,25 @@ Then('the member name must be {string}', async function (name) {
   });
 
 Then('the member {string} must be delete', async function (name) {
+    let busqueda = "="+name;
+    let element = await this.driver.$$(busqueda);
+    let valor = element.length >0 
+    expect(valor).to.equal(false);
+});
+
+Then('the tag must be created', async function () {
+    let element = await this.driver.$$('.gh-tag-list-name');
+    let valor = element.length >0
+    expect(valor).to.equal(true);
+  });
+
+Then('the tag name must be {string}', async function (name) {
+    let element = await this.driver.$('#tag-name');
+    let valor = await element.getValue()
+    expect(valor).to.equal(name);
+  });
+
+  Then('the tag {string} must be delete', async function (name) {
     let busqueda = "="+name;
     let element = await this.driver.$$(busqueda);
     let valor = element.length >0 
