@@ -1,12 +1,16 @@
 describe ('borrar', function(){
+    beforeEach(() => {
+        cy.visit('http://localhost:2368/ghost')
+        cy.wait(5000)
+      })
+
     it ('login', function(){
         cy.visit("http://localhost:2368/ghost/#/signin");
-        cy.get('#ember7').type('j.otalvaro@uniandes.edu.co');
+        cy.get('#ember7').type(Cypress.config('usuario'));
+        cy.get('#ember9').type(Cypress.config('pass'));
+        cy.get('#ember11').click();
         cy.wait(1000);
-        cy.get('#ember9').type('irchete7811');
-        cy.wait(1000);
-        cy.get('#ember11 > span').click();
-        cy.wait(1000);
+        
         cy.get('.ember-view.gh-secondary-action.gh-nav-new-post').click();
         cy.wait(1000);
         cy.get('.gh-editor-title.ember-text-area.gh-input.ember-view').type('POST DE PRUEBA PARA BORRAR');
