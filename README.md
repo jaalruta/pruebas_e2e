@@ -1,4 +1,4 @@
-# pruebas extremo a extremo con Kraken y Cypress
+# Pruebas extremo a extremo con Kraken y Cypress
 
 ## Sistema Bajo Pruebas
 
