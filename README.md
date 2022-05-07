@@ -23,8 +23,8 @@ Todas las anteriores hacen uso de la funcionalidad de inicio de sesión
 A continuación se listan los escenarios generados los cuales usan varias funcionalidades de la aplicación.
 
 1. Crear Post : En este escenario se inicia sesión , se usa la opción de crear post  , se ingresan datos del título y cuerpo del post , se guarda el post y se publica de inmediato.
-2. Editar Post : En este escenario se inicia sesión , se selecciona un post ya creado , se modifican los datos y se guardan las modificaciones.
-3. Borrar Post : En este escenario se inicia sesión , se selecciona un post ya creado y se realiza el borrador del post.
+2. Editar Post : En este escenario se inicia sesión , se crea un post, se selecciona un post ya creado , se modifican los datos y se guardan las modificaciones.
+3. Borrar Post : En este escenario se inicia sesión , se crea un post, se selecciona un post ya creado y se realiza el borrador del post.
 4. Crear Post Programado : En este escenario se inicia sesión , se usa la opción de crear post , se ingresan datos del título y cuerpo del post , se guarda el post y se programa una hora de publicación.
 5. Crear Página : En este escenario se inicia sesión , se usa la opción de crear pagina  , se ingresan datos del título y cuerpo de la página , se guarda la página y se publica de inmediato.
 6. Editar Página : En este escenario se inicia sesión , se selecciona una página ya creada , se modifican los datos y se guardan las modificaciones.
