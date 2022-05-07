@@ -356,7 +356,48 @@ Then('the tag name must be {string}', async function (name) {
     let valor = element.length >0 
     expect(valor).to.equal(false);
 });
-  
+
+When('I click post menu', async function() {
+
+    let element = await this.driver.$('.ember-view.gh-editor-back-button');
+    return await element.click();
+
+})
+
+When('I click posts edit', async function() {
+
+    let element = await this.driver.$('.posts-list > :nth-child(2)');
+    return await element.click();
+
+})
+
+When('I click post publish', async function() {
+
+    let element = await this.driver.$('.ember-view.gh-secondary-action.gh-nav-new-post');
+    return await element.click();
+
+})
+
+When('I click post settings', async function() {
+
+    let element = await this.driver.$('.settings-menu-toggle > span > svg');
+    return await element.click();
+
+})
+
+When('I click delete post', async function() {
+
+    let element = await this.driver.$('form > .gh-btn > span');
+    return await element.click();
+
+})
+
+When('I click confirm delete post', async function() {
+
+    let element = await this.driver.$('.gh-btn.gh-btn-red.gh-btn-icon.ember-view');
+    return await element.click();
+
+})
 
 
 
