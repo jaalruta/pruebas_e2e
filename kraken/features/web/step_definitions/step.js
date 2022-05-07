@@ -299,7 +299,7 @@ When('I enter tag description {string}', async function (description) {
 
 When('I select a tag', async function() {
 
-    let element = await this.driver.$(".gh-main li:nth-child(4) a:nth-child(2)"); 
+    let element = await this.driver.$(".gh-canvas a[href='#/tags/segundo-tag/']"); 
     return await element.click();
 
 });
@@ -339,7 +339,7 @@ Then('the member {string} must be delete', async function (name) {
 });
 
 Then('the tag must be created', async function () {
-    let element = await this.driver.$$('.gh-tag-list-name');
+    let element = await this.driver.$$(".tags-list a[href='#/tags/primer-tag/']");
     let valor = element.length >0
     expect(valor).to.equal(true);
   });
