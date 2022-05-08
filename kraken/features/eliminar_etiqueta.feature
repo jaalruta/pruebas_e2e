@@ -24,7 +24,7 @@ Scenario: Como usuario administrador inicio sesion y elimino una etiqueta
   And I wait for 2 seconds
   And I click tags
   And I wait for 2 seconds
-  And I select a tag
+  And I select a tag borrado
   And I wait for 2 seconds
   And I click delete tag
   And I wait for 2 seconds

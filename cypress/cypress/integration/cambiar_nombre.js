@@ -18,3 +18,4 @@ describe ('crear', function(){
         cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
     })
 })
+

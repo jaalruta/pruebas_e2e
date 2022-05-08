@@ -297,9 +297,16 @@ When('I enter tag description {string}', async function (description) {
 
 });
 
-When('I select a tag', async function() {
+When('I select a tag edicion', async function() {
 
     let element = await this.driver.$(".gh-canvas a[href='#/tags/segundo-tag/']"); 
+    return await element.click();
+
+});
+
+When('I select a tag borrado', async function() {
+
+    let element = await this.driver.$(".gh-canvas a[href='#/tags/prueba-borrado/']"); 
     return await element.click();
 
 });

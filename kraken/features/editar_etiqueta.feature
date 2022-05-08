@@ -24,7 +24,7 @@ Scenario: "Como usuario administrador inicio sesion y edito una etiqueta"
   And I wait for 2 seconds
   And I click tags
   And I wait for 2 seconds
-  And I select a tag
+  And I select a tag edicion
   And I wait for 2 seconds
   And I enter tag name "prueba tag edicion"
   And I wait for 2 seconds
