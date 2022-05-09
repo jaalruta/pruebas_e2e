@@ -1,3 +1,12 @@
+## Estudiantes
+Nuestro equipo está conformado por 4 integrantes.
+|Nombre |Correo|
+|--|--|
+|Jair Alexander Rueda Tapiero |ja.ruedat1@uniandes.edu.co   |
+|Andres Felipe Rodriguez Nuñez|af.rodriguezn@uniandes.edu.co  |
+|Juan Esteban Otálvaro Alzate |j.otalvaro@uniandes.edu.co     |
+|Ilse Milena Villalba Mantilla|im.villalba1240@uniandes.edu.co|
+
 # Pruebas extremo a extremo con Kraken y Cypress
 
 ## Sistema Bajo Pruebas
