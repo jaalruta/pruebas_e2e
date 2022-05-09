@@ -2,7 +2,7 @@ Feature: crear post
 
 @user1 @web
 
-Scenario: Como usuario administrador inicio sesion, creo un post y lo elimino 
+Scenario: Como usuario administrador inicio sesion, creo un post y lo edito 
 
   Given I navigate to page "http://localhost:2368/ghost"
 

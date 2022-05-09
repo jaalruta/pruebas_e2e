@@ -486,3 +486,20 @@ When('I choose zone option', async function() {
   return await element.select(Pacific/Pago_Pago);
 
 }) 
+
+When('I expand title option', async function() {
+
+    let element = await this.driver.$(":nth-child(2) > .gh-expandable > :nth-child(1) > .gh-expandable-header > .gh-btn > span");
+    return await element.click();
+
+})
+
+
+
+When('I enter title body {string}', async function (titulo) {
+
+    let element = await this.driver.$('.ember-text-field.gh-input.ember-view');
+
+    return await element.setValue(titulo);
+
+});
