@@ -407,16 +407,82 @@ When('I click confirm delete post', async function() {
 })
 
 
+When('I click pages', async function() {
+
+  let element = await this.driver.$('#ember28');
+
+  return await element.click();
+
+})
+
+When('I click new pages', async function() {
+
+  let element = await this.driver.$(".ember-view.gh-btn.gh-btn-primary.view-actions-top-row");
+  return await element.click();
+
+})
 
 
+When('I enter pages title {string}', async function (titulo) {
+
+  let element = await this.driver.$('.gh-editor-title.ember-text-area.gh-input.ember-view');
+
+  return await element.setValue(titulo);
+
+});
 
 
+When('I enter pages body {string}', async function (body) {
+
+  let element = await this.driver.$('.koenig-editor__editor.__mobiledoc-editor');
+  return await element.setValue(body);
+});
 
 
+When('I click pages menu', async function() {
 
+  let element = await this.driver.$('.ember-view.gh-editor-back-button');
+  return await element.click();
 
+})
 
+When('I click pages edit', async function() {
 
+  let element = await this.driver.$('.gh-content-entry-title');
+  return await element.click();
+})
 
+When('I click page settings', async function() {
 
+  let element = await this.driver.$('.settings-menu-toggle > span > svg');
+  return await element.click();
 
+})
+
+When('I click delete page', async function() {
+
+  let element = await this.driver.$('form > .gh-btn > span');
+  return await element.click();
+
+})
+
+When('I click confirm delete page', async function() {
+
+  let element = await this.driver.$('.gh-btn.gh-btn-red.gh-btn-icon.ember-view');
+  return await element.click();
+
+})
+
+When('I expand zone option', async function() {
+
+      let element = await this.driver.$(':nth-child(2) > .gh-expandable > :nth-child(2) > .gh-expandable-header > .gh-btn > span');
+      return await element.click();
+
+})
+
+When('I choose zone option', async function() {
+
+  let element = await this.driver.$("select");
+  return await element.select(Pacific/Pago_Pago);
+
+}) 
