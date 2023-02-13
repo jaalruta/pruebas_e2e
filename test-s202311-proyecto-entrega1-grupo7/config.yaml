@@ -1,0 +1,22 @@
+team: 202311-grupo7
+board: https://github.com/orgs/MISW-4301-Desarrollo-Apps-en-la-Nube/projects/63
+user-management:
+  folder: microservicio-usuarios
+  port: 5000
+  authors:
+    - ja.ruedat1@uniandes.edu.co
+post-management:
+  folder: <nombre de la carpeta>
+  port: <puerto en el que corre el servidor de post>
+  authors:
+    - <usuario uniandes>
+offer-management:
+  folder: <nombre de la carpeta>
+  port: <puerto en el que corre el servidor de offer>
+  authors:
+    - <usuario uniandes>
+journey-management:
+  folder: <nombre de la carpeta>
+  port: <puerto en el que corre el servidor de journey>
+  authors:
+    - <usuario uniandes>

@@ -1,0 +1,79 @@
+version: "1.0"
+
+services:
+  db_usuarios:
+    image: postgres:15.1
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=microservicio
+      - TZ=America/Bogota
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U docker -d microservicio"]
+      interval: 2s
+      timeout: 5s
+      retries: 5
+    ports:
+      - '9001:5432'
+    networks:
+      - usuarios-network 
+  app_usuarios:
+    build: ./microservicio-usuarios
+    networks:
+      - app-network
+      - usuarios-network
+    ports:
+      - '9000:5000'
+    depends_on:
+      db_usuarios:
+        condition: service_healthy
+    environment:
+      - TZ=America/Bogota
+      - USER_DB_P=docker
+      - PASSWORD_DB_P=docker
+      - HOST_DB_P=db_usuarios
+      - DB_P=microservicio
+      - DB_P_PORT=5432
+  db_trayectos:
+    image: postgres:15.1
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=microservicio
+      - TZ=America/Bogota
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U docker -d microservicio"]
+      interval: 2s
+      timeout: 5s
+      retries: 5
+    ports:
+      - '9002:5432'
+    networks:
+      - trayectos-network 
+  app_trayectos:
+    build: ./microservicio-trayectos
+    networks:
+      - app-network
+      - trayectos-network
+    ports:
+      - '9003:5000'
+    depends_on:
+      db_trayectos:
+        condition: service_healthy
+    environment:
+      - TZ=America/Bogota
+      - USER_DB_P=docker
+      - PASSWORD_DB_P=docker
+      - HOST_DB_P=db_trayectos
+      - DB_P=microservicio
+      - DB_P_PORT=5432
+      - USER_SERVICE_NAME=app_usuarios
+      - USER_SERVICE_PORT=5000
+      - USER_SERVICE_PROTOCOL=http
+networks:
+  app-network:
+    driver: bridge
+  usuarios-network:
+    driver: bridge
+  trayectos-network:
+    driver: bridge

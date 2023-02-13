@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "358f5e47-f275-4c85-af37-e684a6596da0",
+		"name": "desarrollo nube",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Creacion de usuarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"jair9\",\r\n    \"email\": \"rueda9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocolo}}://{{host_usuarios}}:{{puerto_usuarios}}/users",
+					"protocol": "{{protocolo}}",
+					"host": [
+						"{{host_usuarios}}"
+					],
+					"port": "{{puerto_usuarios}}",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Permite crear los usuarios de la aplicacion"
+			},
+			"response": []
+		},
+		{
+			"name": "Autenticacion de usuarios",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var status = pm.response.status;\r",
+							"if(status==\"OK\")\r",
+							"{\r",
+							"    const response = pm.response.json();\r",
+							"    console.log(response)\r",
+							"    pm.collectionVariables.set(\"token\", response.token);\r",
+							"}\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"jair9\",\r\n    \"password\": \"jair9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocolo}}://{{host_usuarios}}:{{puerto_usuarios}}/users/auth",
+					"protocol": "{{protocolo}}",
+					"host": [
+						"{{host_usuarios}}"
+					],
+					"port": "{{puerto_usuarios}}",
+					"path": [
+						"users",
+						"auth"
+					]
+				},
+				"description": "Permite autenticar a los usuarios y generar los tokens para los demas microservicios"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiener Informacion",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocolo}}://{{host_usuarios}}:{{puerto_usuarios}}/users/me",
+					"protocol": "{{protocolo}}",
+					"host": [
+						"{{host_usuarios}}"
+					],
+					"port": "{{puerto_usuarios}}",
+					"path": [
+						"users",
+						"me"
+					]
+				},
+				"description": "Permite obtener la informacion del usuario que hizo login"
+			},
+			"response": []
+		},
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocolo}}://{{host_usuarios}}:{{puerto_usuarios}}/users/ping",
+					"protocol": "{{protocolo}}",
+					"host": [
+						"{{host_usuarios}}"
+					],
+					"port": "{{puerto_usuarios}}",
+					"path": [
+						"users",
+						"ping"
+					]
+				},
+				"description": "Permite validar si el microservicio esta en ejecucion"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "puerto_usuarios",
+			"value": "9000",
+			"type": "default"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "host_usuarios",
+			"value": "127.0.0.1",
+			"type": "default"
+		},
+		{
+			"key": "protocolo",
+			"value": "http",
+			"type": "default"
+		}
+	]
+}
