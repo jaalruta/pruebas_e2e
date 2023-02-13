@@ -5,7 +5,7 @@ from flask_cors import CORS
 from flask_restful import Api
 
 from modelos import db
-from vistas import VistaRoutes, VistaPing
+from vistas import VistaRoutes, VistaPing , VistaRoute
 
 USER = os.getenv('USER_DB_P')
 PASSWORD = os.environ.get('PASSWORD_DB_P')
@@ -40,4 +40,5 @@ cors = CORS(app)
 api = Api(app)
 
 api.add_resource(VistaRoutes, '/routes/')
+api.add_resource(VistaRoute, '/routes/<id>')
 api.add_resource(VistaPing, '/routes/ping')
