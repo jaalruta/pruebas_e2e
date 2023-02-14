@@ -7,25 +7,11 @@ from flask_restful import Api
 from modelos import db
 from vistas import VistaRoutes, VistaPing , VistaRoute
 
-USER = os.getenv('USER_DB_P')
-PASSWORD = os.environ.get('PASSWORD_DB_P')
-HOST = os.environ.get('HOST_DB_P')
-DB = os.environ.get('DB_P')
-PORT = os.environ.get('DB_P_PORT')
-
-if not USER:
-    USER = 'user'
-
-if not PASSWORD:
-    PASSWORD = 'pass1234'
-
-if not HOST:
-    HOST = 'localhost'
-
-if not DB:
-    DB = 'microservicio'
-if not PORT:
-    PORT = '5432'
+USER = "docker" if os.getenv('USER_DB_P') is None else os.getenv('USER_DB_P')
+PASSWORD = "docker" if os.getenv('PASSWORD_DB_P') is None else os.getenv('PASSWORD_DB_P')
+HOST = "localhost" if os.getenv('HOST_DB_P') is None else os.getenv('HOST_DB_P')
+DB = "microservicio" if os.getenv('DB_P') is None else os.getenv('DB_P')
+PORT = "9002" if os.getenv('DB_P_PORT') is None else os.getenv('DB_P_PORT')
 
 DB_HOST = HOST+":"+PORT
 basedir = os.path.abspath(os.path.dirname(__file__))

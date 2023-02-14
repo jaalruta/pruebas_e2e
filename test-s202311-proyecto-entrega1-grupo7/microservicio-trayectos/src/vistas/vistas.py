@@ -32,7 +32,7 @@ class VistaRoutes(Resource):
             basedir = os.path.abspath(os.path.dirname(__file__))
             data_file = os.path.join(basedir, 'IATA.json')
 
-            file = open(data_file)
+            file = open(data_file, encoding="utf8")
             IATA = json.load(file)
             file.close()
 
@@ -119,11 +119,11 @@ class VistaPing(Resource):
 def validaUsuario(token):
 
     token = token.split()[1]
-    USER_SERVICE_PROTOCOL = os.environ.get('USER_SERVICE_PROTOCOL')
-    USER_SERVICE_NAME = os.environ.get('USER_SERVICE_NAME')
-    USER_SERVICE_PORT = os.environ.get('USER_SERVICE_PORT')
-
+    USER_SERVICE_PROTOCOL = "http" if os.getenv('USER_SERVICE_PROTOCOL') is None else os.getenv('USER_SERVICE_PROTOCOL')
+    USER_SERVICE_NAME = "localhost" if os.getenv('USER_SERVICE_NAME') is None else os.getenv('USER_SERVICE_NAME')
+    USER_SERVICE_PORT = "5005" if os.getenv('USER_SERVICE_PORT') is None else os.getenv('USER_SERVICE_PORT')
     res = requests.get(USER_SERVICE_PROTOCOL+"://"+USER_SERVICE_NAME+":"+USER_SERVICE_PORT+'/users/me', headers={"Authorization": "Bearer {}".format(token)})
+    
     if res.status_code == 200:
         return True
     else:
